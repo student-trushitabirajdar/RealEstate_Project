@@ -54,11 +54,14 @@ src/
 2. **Install dependencies:**
    ```bash
    npm install
+   (cd server && npm install)
    ```
 
 3. **Start the development server:**
    ```bash
    npm start
+   # Backend API (Express + Prisma)
+   cd server && npm run dev
    ```
 
 4. **Open your browser and navigate to:**
@@ -72,6 +75,23 @@ src/
 - `npm build` - Builds the app for production
 - `npm test` - Launches the test runner
 - `npm eject` - Ejects from Create React App (one-way operation)
+ 
+### Backend (server)
+
+- `npm run dev` - Runs the API on port 4000 (default)
+- `npm run build` - Builds TypeScript
+- `npm start` - Runs compiled server
+- `npm run prisma <args>` - Prisma CLI
+
+Environment (server/.env):
+- `DATABASE_URL` (SQLite dev default: `file:./dev.db`)
+- `JWT_ACCESS_SECRET`, `JWT_REFRESH_SECRET`
+- `JWT_ACCESS_EXPIRES_IN`, `JWT_REFRESH_EXPIRES_IN`
+- `CORS_ORIGINS` (comma-separated origins)
+
+Database:
+- Dev: SQLite via Prisma
+- Prod: Switch `provider` to `mysql` in `server/prisma/schema.prisma` and set `DATABASE_URL` to MySQL. Run `prisma migrate deploy` in CI/CD.
 
 ## Styling
 

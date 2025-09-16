@@ -85,8 +85,8 @@ const SignupPage: React.FC = () => {
 
     if (!formData.password) {
       newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters long';
+    } else if (formData.password.length < 8) {
+      newErrors.password = 'Password must be at least 8 characters long';
     }
 
     if (!formData.confirmPassword) {
@@ -99,12 +99,36 @@ const SignupPage: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent): void => {
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log('Form submitted:', { option: selectedOption, ...formData });
-      alert(`Registration successful for ${selectedOption === 'broker' ? 'Broker' : 'Channel Partner'}!`);
-      // Here you would typically send the data to your backend
+    if (!validateForm()) return;
+
+    try {
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          name: formData.fullName
+        })
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        const message = data?.message || 'Failed to create account';
+        alert(message);
+        return;
+      }
+
+      const data = await res.json();
+      console.log('Signup success:', data);
+      alert('Registration successful!');
+      handleBackToMain();
+    } catch (err) {
+      console.error('Signup error:', err);
+      alert('Network error. Please try again.');
     }
   };
 
@@ -114,24 +138,24 @@ const SignupPage: React.FC = () => {
         <div className="signup-header">
           <h1>Join Our Platform</h1>
           <p>
-            {showForm 
-              ? `Create your ${selectedOption === 'broker' ? 'Broker' : 'Channel Partner'} account` 
+            {showForm
+              ? `Create your ${selectedOption === 'broker' ? 'Broker' : 'Channel Partner'} account`
               : 'Choose your account type to get started'
             }
           </p>
         </div>
-        
+
         {!showForm ? (
           <div className="signup-options">
-            <div 
+            <div
               className={`option-card ${selectedOption === 'broker' ? 'selected' : ''}`}
               onClick={() => handleOptionSelect('broker')}
             >
               <div className="option-icon">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <h3>Broker</h3>
@@ -144,16 +168,16 @@ const SignupPage: React.FC = () => {
               </ul>
             </div>
 
-            <div 
+            <div
               className={`option-card ${selectedOption === 'channel-partner' ? 'selected' : ''}`}
               onClick={() => handleOptionSelect('channel-partner')}
             >
               <div className="option-icon">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M23 21V19C23 18.1645 22.7155 17.3541 22.2094 16.6977C21.7033 16.0413 20.9999 15.5714 20.2 15.36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89317 18.7122 8.75608 18.1676 9.45768C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M23 21V19C23 18.1645 22.7155 17.3541 22.2094 16.6977C21.7033 16.0413 20.9999 15.5714 20.2 15.36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89317 18.7122 8.75608 18.1676 9.45768C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <h3>Channel Partner</h3>
@@ -256,7 +280,7 @@ const SignupPage: React.FC = () => {
 
         <div className="signup-actions">
           {showForm ? (
-            <button 
+            <button
               className="back-button"
               onClick={handleBackToMain}
               type="button"
@@ -268,9 +292,9 @@ const SignupPage: React.FC = () => {
               ← Back to Home
             </Link>
           )}
-          
+
           {showForm ? (
-            <button 
+            <button
               className="continue-button active"
               onClick={handleSubmit}
               type="submit"
@@ -278,7 +302,7 @@ const SignupPage: React.FC = () => {
               Create Account
             </button>
           ) : (
-            <button 
+            <button
               className={`continue-button ${selectedOption ? 'active' : 'disabled'}`}
               disabled={!selectedOption}
               onClick={() => selectedOption && handleOptionSelect(selectedOption)}
