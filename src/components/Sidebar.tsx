@@ -1,8 +1,8 @@
 import React from 'react';
 import './Sidebar.css';
 
-const Sidebar = () => {
-  const menuItems = [
+const Sidebar: React.FC = () => {
+  const menuItems: string[] = [
     'HOME',
     'BUILDING DATA',
     'BROKER',
@@ -33,7 +33,7 @@ const Sidebar = () => {
               <a 
                 href="#" 
                 className={`nav-link ${item === 'HOME' ? 'active' : ''}`}
-                onClick={(e) => e.preventDefault()}
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()}
               >
                 {item}
               </a>

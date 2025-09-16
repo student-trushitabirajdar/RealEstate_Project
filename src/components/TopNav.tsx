@@ -2,8 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './TopNav.css';
 
-const TopNav = () => {
-  const navItems = [
+interface NavItem {
+  name: string;
+  link: string;
+}
+
+const TopNav: React.FC = () => {
+  const navItems: NavItem[] = [
     { name: 'About Us', link: '#' },
     { name: 'Contact Us', link: '#' },
     { name: 'Login', link: '#' },
@@ -19,7 +24,7 @@ const TopNav = () => {
               key={index}
               href="#"
               className="nav-button"
-              onClick={(e) => e.preventDefault()}
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()}
             >
               {item.name}
             </a>

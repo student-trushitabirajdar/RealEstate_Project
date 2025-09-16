@@ -5,28 +5,28 @@ import TopNav from './TopNav';
 import MainGrid from './MainGrid';
 
 // Example page components
-const HomePage = () => (
+const HomePage: React.FC = () => (
   <div className="page-content">
     <h1>Welcome to ENFOR DATA</h1>
     <p>This is the home page content.</p>
   </div>
 );
 
-const BuildingDataPage = () => (
+const BuildingDataPage: React.FC = () => (
   <div className="page-content">
     <h1>Building Data</h1>
     <p>Building data management and information.</p>
   </div>
 );
 
-const BrokerPage = () => (
+const BrokerPage: React.FC = () => (
   <div className="page-content">
     <h1>Broker Services</h1>
     <p>Broker information and services.</p>
   </div>
 );
 
-const ExampleRouter = () => {
+const ExampleRouter: React.FC = () => {
   return (
     <Router>
       <div className="app">

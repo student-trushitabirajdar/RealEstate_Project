@@ -1,8 +1,15 @@
 import React from 'react';
 import './MainGrid.css';
 
-const MainGrid = () => {
-  const gridItems = [
+interface GridItem {
+  id: number;
+  title: string;
+  icon: string;
+  description: string;
+}
+
+const MainGrid: React.FC = () => {
+  const gridItems: GridItem[] = [
     {
       id: 1,
       title: 'BUILDING DATA',
@@ -89,7 +96,7 @@ const MainGrid = () => {
     }
   ];
 
-  const handleCardClick = (item) => {
+  const handleCardClick = (item: GridItem): void => {
     console.log(`Clicked on ${item.title}`);
     // Add navigation logic here
   };
@@ -104,7 +111,7 @@ const MainGrid = () => {
             onClick={() => handleCardClick(item)}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => {
+            onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 handleCardClick(item);

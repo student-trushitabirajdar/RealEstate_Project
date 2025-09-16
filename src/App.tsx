@@ -6,7 +6,7 @@ import MainGrid from './components/MainGrid';
 import SignupPage from './components/SignupPage';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Routes>
@@ -23,6 +23,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
