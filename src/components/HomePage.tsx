@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './MainGrid.css';
+import './HomePage.css';
 
 interface GridItem {
   id: number;
@@ -9,7 +9,7 @@ interface GridItem {
   description: string;
 }
 
-const MainGrid: React.FC = () => {
+const HomePage: React.FC = () => {
   const navigate = useNavigate();
   
   const gridItems: GridItem[] = [
@@ -152,34 +152,47 @@ const MainGrid: React.FC = () => {
   };
 
   return (
-    <div className="main-grid-container">
-      <div className="main-grid">
-        {gridItems.map((item) => (
-          <div
-            key={item.id}
-            className="grid-card"
-            onClick={() => handleCardClick(item)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                handleCardClick(item);
-              }
-            }}
-            aria-label={`${item.title} - ${item.description}`}
-          >
-            <div className="card-icon">
-              {item.icon}
+    <div className="homepage-container">
+      {/* Hero Section */}
+      <div className="hero-section">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            We bring properties and people together.
+          </h1>
+        </div>
+      </div>
+
+      {/* Main Grid Section */}
+      <div className="main-grid-container">
+        <div className="main-grid">
+          {gridItems.map((item) => (
+            <div
+              key={item.id}
+              className="grid-card"
+              onClick={() => handleCardClick(item)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleCardClick(item);
+                }
+              }}
+              aria-label={`${item.title} - ${item.description}`}
+            >
+              <div className="card-icon">
+                {item.icon}
+              </div>
+              <div className="card-title">
+                {item.title}
+              </div>
             </div>
-            <div className="card-title">
-              {item.title}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export default MainGrid;
+export default HomePage;
+

@@ -1,0 +1,374 @@
+.building-data-container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.building-data-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.building-data-header h1 {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 15px 30px;
+  border: 2px solid #000;
+  border-radius: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.building-data-form {
+  background-color: #f5f5f5;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.form-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #000;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: #e6f3ff;
+  border: 2px solid #000;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  background-color: #d1e7ff;
+  border-color: #1e3a8a;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #dc2626;
+  background-color: #fef2f2;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* Contact Number Section */
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.contact-btn {
+  background-color: #e6f3ff;
+  border: 2px solid #000;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  border-radius: 0;
+}
+
+.contact-btn:hover {
+  background-color: #d1e7ff;
+  transform: translateY(-1px);
+}
+
+.contact-btn:active {
+  transform: translateY(0);
+}
+
+.contact-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Bottom Section */
+.form-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+  align-items: start;
+}
+
+/* File Operations */
+.file-operations {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.excel-btn {
+  background-color: #fbbf24;
+  border: 2px solid #000;
+  padding: 15px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0;
+  text-align: center;
+}
+
+.excel-btn:hover {
+  background-color: #f59e0b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.excel-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Date and Time Section */
+.datetime-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.datetime-input {
+  background-color: #e6f3ff;
+  border: 2px solid #000;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.datetime-input:focus {
+  outline: none;
+  background-color: #d1e7ff;
+  border-color: #1e3a8a;
+}
+
+/* Message Section */
+.message-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message-box {
+  background-color: #e6f3ff;
+  border: 2px solid #000;
+  padding: 15px;
+  font-size: 1rem;
+  border-radius: 0;
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.message-box:focus {
+  outline: none;
+  background-color: #d1e7ff;
+  border-color: #1e3a8a;
+}
+
+/* Form Actions */
+.form-actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.submit-btn {
+  background-color: #1e3a8a;
+  color: white;
+  border: 2px solid #000;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+.submit-btn:hover {
+  background-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .form-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .form-bottom {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .file-operations {
+    order: 1;
+  }
+  
+  .datetime-section {
+    order: 2;
+  }
+  
+  .message-section {
+    order: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .building-data-container {
+    padding: 15px;
+  }
+  
+  .building-data-header h1 {
+    font-size: 1.25rem;
+    padding: 12px 20px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .excel-btn {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .submit-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .building-data-container {
+    padding: 10px;
+  }
+  
+  .building-data-header h1 {
+    font-size: 1.1rem;
+    padding: 10px 15px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .contact-btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .excel-btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .submit-btn {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for form appearance */
+.building-data-form {
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus states for better accessibility */
+.form-group input:focus,
+.form-group textarea:focus,
+.contact-btn:focus,
+.excel-btn:focus,
+.submit-btn:focus {
+  outline: 2px solid #1e3a8a;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .building-data-container {
+    background-color: white;
+    padding: 0;
+  }
+  
+  .building-data-header h1 {
+    background-color: #1e3a8a;
+    color: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    background-color: #e6f3ff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

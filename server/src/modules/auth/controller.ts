@@ -56,6 +56,20 @@ function sanitizeUser(user: any) {
     return rest;
 }
 
+export async function logoutHandler(req: Request, res: Response) {
+    // Clear the auth cookies
+    res.clearCookie("accessToken", { path: "/" });
+    res.clearCookie("refreshToken", { path: "/" });
+    return res.json({ message: "Logged out successfully" });
+}
+
+export async function meHandler(req: Request, res: Response) {
+    // This would typically verify the JWT token from cookies
+    // For now, we'll return a simple response
+    // In a real implementation, you'd verify the token and return user data
+    return res.status(401).json({ message: "Not authenticated" });
+}
+
 function setAuthCookies(res: Response, tokens: { accessToken: string; refreshToken: string }) {
     const isProd = process.env.NODE_ENV === "production";
     res.cookie("accessToken", tokens.accessToken, {
