@@ -1,0 +1,8 @@
+NODE_ENV=development
+PORT=4000
+DATABASE_URL="file:./dev.db"
+JWT_ACCESS_SECRET="dev-access-secret-change"
+JWT_REFRESH_SECRET="dev-refresh-secret-change"
+JWT_ACCESS_EXPIRES_IN=15m
+JWT_REFRESH_EXPIRES_IN=7d
+CORS_ORIGINS=
