@@ -14,8 +14,72 @@ model User {
   passwordHash  String
   tokenVersion  Int      @default(0)
   name          String?
+  role          Role     @default(BROKER)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+
+  // relations
+  brokers      Broker[]
+  buildingData BuildingData[]
 }
 
+
+enum Role {
+  BROKER
+  CHANNEL_PARTNER
+}
+
+model Broker {
+  id           String   @id @default(cuid())
+  firmName     String
+  firstName    String
+  lastName     String
+  emailId      String
+  dateOfBirth  String
+  whatsapp     String?
+  alternate    String?
+  foreign      String?
+  address      String
+  location     String
+  city         String
+  state        String
+  postalCode   String
+  date         String?
+  time         String?
+  message      String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  createdById  String
+  createdBy    User     @relation(fields: [createdById], references: [id])
+
+  @@index([createdById])
+}
+
+model BuildingData {
+  id          String   @id @default(cuid())
+  societyName String
+  flatNo      String
+  firstName   String
+  lastName    String
+  emailId     String
+  whatsapp    String?
+  alternate   String?
+  international String?
+  address     String
+  location    String
+  city        String
+  state       String
+  postalCode  String
+  date        String?
+  time        String?
+  message     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  createdById String
+  createdBy   User     @relation(fields: [createdById], references: [id])
+
+  @@index([createdById])
+}
 

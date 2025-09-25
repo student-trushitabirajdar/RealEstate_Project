@@ -6,8 +6,8 @@ export type JwtTokens = {
     refreshToken: string;
 };
 
-export function signTokens(userId: string, tokenVersion: number = 0): JwtTokens {
-    const accessToken = jwt.sign({ sub: userId, type: "access", tv: tokenVersion }, env.jwtAccessSecret, {
+export function signTokens(userId: string, tokenVersion: number = 0, role?: "BROKER" | "CHANNEL_PARTNER"): JwtTokens {
+    const accessToken = jwt.sign({ sub: userId, type: "access", tv: tokenVersion, role }, env.jwtAccessSecret, {
         expiresIn: env.jwtAccessExpiresIn,
     });
     const refreshToken = jwt.sign({ sub: userId, type: "refresh", tv: tokenVersion }, env.jwtRefreshSecret, {

@@ -4,7 +4,7 @@ export async function findUserByEmail(email: string) {
     return prisma.user.findUnique({ where: { email } });
 }
 
-export async function createUser(params: { email: string; passwordHash: string; name?: string | null }) {
+export async function createUser(params: { email: string; passwordHash: string; name?: string | null; role?: "BROKER" | "CHANNEL_PARTNER" }) {
     return prisma.user.create({ data: params });
 }
 

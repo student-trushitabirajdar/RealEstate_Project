@@ -9,6 +9,7 @@ const signupSchema = z.object({
     email: z.string().email().min(3).max(255),
     password: z.string().min(8).max(128),
     name: z.string().min(1).max(100).optional(),
+    role: z.enum(["BROKER", "CHANNEL_PARTNER"]).optional(),
 });
 
 const loginSchema = z.object({
@@ -21,14 +22,14 @@ export async function signupHandler(req: Request, res: Response) {
     if (!parse.success) {
         return res.status(400).json({ message: "Invalid input", errors: parse.error.flatten() });
     }
-    const { email, password, name } = parse.data;
+    const { email, password, name, role } = parse.data;
     const existing = await findUserByEmail(email);
     if (existing) {
         return res.status(409).json({ message: "Email already in use" });
     }
     const passwordHash = await bcrypt.hash(password, 12);
-    const user = await createUser({ email, passwordHash, name });
-    const tokens = signTokens(user.id, user.tokenVersion);
+    const user = await createUser({ email, passwordHash, name, role: role ?? "BROKER" });
+    const tokens = signTokens(user.id, user.tokenVersion, user.role);
     setAuthCookies(res, tokens);
     return res.status(201).json({ user: sanitizeUser(user), tokens });
 }
@@ -47,7 +48,7 @@ export async function loginHandler(req: Request, res: Response) {
     if (!ok) {
         return res.status(401).json({ message: "Invalid credentials" });
     }
-    const tokens = signTokens(user.id, user.tokenVersion);
+    const tokens = signTokens(user.id, user.tokenVersion, (user as any).role);
     setAuthCookies(res, tokens);
     return res.json({ user: sanitizeUser(user), tokens });
 }
@@ -89,7 +90,7 @@ export async function refreshHandler(req: Request, res: Response) {
         if (typeof decoded.tv === "number" && decoded.tv !== user.tokenVersion) {
             return res.status(401).json({ message: "Unauthorized" });
         }
-        const tokens = signTokens(user.id, user.tokenVersion);
+        const tokens = signTokens(user.id, user.tokenVersion, (user as any).role);
         setAuthCookies(res, tokens);
         return res.json({ tokens });
     } catch (err) {
