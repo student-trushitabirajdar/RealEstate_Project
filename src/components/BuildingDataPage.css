@@ -1,13 +1,13 @@
 .building-data-container {
-  background-color: #f5f5f5;
+  background-color: white;
   min-height: 100vh;
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 }
 
 .building-data-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .building-data-header h1 {
@@ -24,22 +24,24 @@
 }
 
 .building-data-form {
-  background-color: #f5f5f5;
-  max-width: 1200px;
+  background-color: white;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
 }
 
 .form-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
   margin-bottom: 30px;
 }
 
-.form-column {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.contact-group {
+  grid-column: 1 / -1;
 }
 
 .form-group {
@@ -49,39 +51,47 @@
 }
 
 .form-group label {
-  font-weight: bold;
-  color: #000;
-  font-size: 1rem;
-  margin-bottom: 5px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.025em;
 }
 
 .form-group input,
 .form-group textarea {
-  background-color: #e6f3ff;
-  border: 2px solid #000;
-  padding: 12px 15px;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  padding: 12px 16px;
   font-size: 1rem;
-  border-radius: 0;
-  transition: all 0.3s ease;
+  border-radius: 8px;
+  transition: all 0.2s ease;
   width: 100%;
   box-sizing: border-box;
+  color: #111827;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  background-color: #d1e7ff;
-  border-color: #1e3a8a;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9ca3af;
+  font-size: 0.95rem;
 }
 
 .form-group input.error,
 .form-group textarea.error {
-  border-color: #dc2626;
-  background-color: #fef2f2;
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
 .error-message {
-  color: #dc2626;
+  color: #ef4444;
   font-size: 0.875rem;
   font-weight: 500;
   margin-top: 4px;
@@ -96,25 +106,25 @@
 }
 
 .contact-btn {
-  background-color: #e6f3ff;
-  border: 2px solid #000;
-  padding: 10px 15px;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  padding: 10px 16px;
   font-size: 0.9rem;
-  font-weight: bold;
-  color: #000;
+  font-weight: 500;
+  color: #374151;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   text-align: left;
-  border-radius: 0;
+  border-radius: 6px;
 }
 
 .contact-btn:hover {
-  background-color: #d1e7ff;
-  transform: translateY(-1px);
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
 }
 
 .contact-btn:active {
-  transform: translateY(0);
+  background-color: #e5e7eb;
 }
 
 .contact-inputs {
@@ -140,27 +150,27 @@
 }
 
 .excel-btn {
-  background-color: #fbbf24;
-  border: 2px solid #000;
-  padding: 15px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #000;
+  background-color: #f59e0b;
+  border: 1px solid #d97706;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 0;
+  transition: all 0.2s ease;
+  border-radius: 8px;
   text-align: center;
 }
 
 .excel-btn:hover {
-  background-color: #f59e0b;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #d97706;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
 }
 
 .excel-btn:active {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
 }
 
 /* Date and Time Section */
@@ -171,19 +181,20 @@
 }
 
 .datetime-input {
-  background-color: #e6f3ff;
-  border: 2px solid #000;
-  padding: 12px 15px;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  padding: 12px 16px;
   font-size: 1rem;
-  border-radius: 0;
+  border-radius: 8px;
   width: 100%;
   box-sizing: border-box;
+  color: #111827;
 }
 
 .datetime-input:focus {
   outline: none;
-  background-color: #d1e7ff;
-  border-color: #1e3a8a;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 /* Message Section */
@@ -194,58 +205,72 @@
 }
 
 .message-box {
-  background-color: #e6f3ff;
-  border: 2px solid #000;
-  padding: 15px;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  padding: 12px 16px;
   font-size: 1rem;
-  border-radius: 0;
+  border-radius: 8px;
   resize: vertical;
   min-height: 120px;
   font-family: inherit;
   width: 100%;
   box-sizing: border-box;
+  color: #111827;
 }
 
 .message-box:focus {
   outline: none;
-  background-color: #d1e7ff;
-  border-color: #1e3a8a;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.message-box::placeholder {
+  color: #9ca3af;
+  font-size: 0.95rem;
 }
 
 /* Form Actions */
 .form-actions {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .submit-btn {
-  background-color: #1e3a8a;
+  background-color: #3b82f6;
   color: white;
-  border: 2px solid #000;
-  padding: 15px 40px;
+  border: none;
+  padding: 16px 32px;
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 0;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  min-width: 200px;
 }
 
 .submit-btn:hover {
-  background-color: #1e40af;
+  background-color: #2563eb;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
 }
 
 .submit-btn:active {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .form-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+}
+
 @media (max-width: 1024px) {
   .form-content {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
   }
   
   .form-bottom {
@@ -268,7 +293,11 @@
 
 @media (max-width: 768px) {
   .building-data-container {
-    padding: 15px;
+    padding: 20px 15px;
+  }
+  
+  .building-data-form {
+    padding: 30px 20px;
   }
   
   .building-data-header h1 {
@@ -278,24 +307,29 @@
   
   .form-group input,
   .form-group textarea {
-    padding: 10px 12px;
-    font-size: 0.9rem;
+    padding: 10px 14px;
+    font-size: 0.95rem;
   }
   
   .excel-btn {
-    padding: 12px 16px;
+    padding: 10px 16px;
     font-size: 0.9rem;
   }
   
   .submit-btn {
-    padding: 12px 30px;
+    padding: 14px 28px;
     font-size: 1rem;
+    min-width: 180px;
   }
 }
 
 @media (max-width: 480px) {
   .building-data-container {
-    padding: 10px;
+    padding: 15px 10px;
+  }
+  
+  .building-data-form {
+    padding: 20px 15px;
   }
   
   .building-data-header h1 {
@@ -305,8 +339,8 @@
   
   .form-group input,
   .form-group textarea {
-    padding: 8px 10px;
-    font-size: 0.85rem;
+    padding: 8px 12px;
+    font-size: 0.9rem;
   }
   
   .contact-btn {
@@ -320,8 +354,9 @@
   }
   
   .submit-btn {
-    padding: 10px 25px;
-    font-size: 0.9rem;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    min-width: 160px;
   }
 }
 
@@ -347,7 +382,7 @@
 .contact-btn:focus,
 .excel-btn:focus,
 .submit-btn:focus {
-  outline: 2px solid #1e3a8a;
+  outline: 2px solid #3b82f6;
   outline-offset: 2px;
 }
 
@@ -367,7 +402,7 @@
   
   .form-group input,
   .form-group textarea {
-    background-color: #e6f3ff;
+    background-color: white;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }

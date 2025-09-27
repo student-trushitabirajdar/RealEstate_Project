@@ -115,205 +115,198 @@ const BuildingDataPage: React.FC = () => {
       
       <form className="building-data-form" onSubmit={handleSubmit}>
         <div className="form-content">
-          {/* Left Column - Personal/Society Information */}
-          <div className="form-column left-column">
-            <div className="form-group">
-              <label htmlFor="societyName">Society Name/Apartment</label>
-              <input
-                type="text"
-                id="societyName"
-                name="societyName"
-                value={formData.societyName}
-                onChange={handleInputChange}
-                className={errors.societyName ? 'error' : ''}
-                placeholder="Enter society or apartment name"
-              />
-              {errors.societyName && <span className="error-message">{errors.societyName}</span>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="flatNo">Flat No</label>
-              <input
-                type="text"
-                id="flatNo"
-                name="flatNo"
-                value={formData.flatNo}
-                onChange={handleInputChange}
-                className={errors.flatNo ? 'error' : ''}
-                placeholder="Enter flat number"
-              />
-              {errors.flatNo && <span className="error-message">{errors.flatNo}</span>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="firstName">First Name</label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleInputChange}
-                className={errors.firstName ? 'error' : ''}
-                placeholder="Enter first name"
-              />
-              {errors.firstName && <span className="error-message">{errors.firstName}</span>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleInputChange}
-                className={errors.lastName ? 'error' : ''}
-                placeholder="Enter last name"
-              />
-              {errors.lastName && <span className="error-message">{errors.lastName}</span>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="emailId">Email ID</label>
-              <input
-                type="email"
-                id="emailId"
-                name="emailId"
-                value={formData.emailId}
-                onChange={handleInputChange}
-                className={errors.emailId ? 'error' : ''}
-                placeholder="Enter email address"
-              />
-              {errors.emailId && <span className="error-message">{errors.emailId}</span>}
-            </div>
-
-            <div className="form-group">
-              <label>Contact No</label>
-              <div className="contact-buttons">
-                <button
-                  type="button"
-                  className="contact-btn whatsapp"
-                  onClick={() => document.getElementById('whatsapp')?.focus()}
-                >
-                  Whatsapp
-                </button>
-                <button
-                  type="button"
-                  className="contact-btn alternate"
-                  onClick={() => document.getElementById('alternate')?.focus()}
-                >
-                  Alternate
-                </button>
-                <button
-                  type="button"
-                  className="contact-btn international"
-                  onClick={() => document.getElementById('international')?.focus()}
-                >
-                  International
-                </button>
-              </div>
-              <div className="contact-inputs">
-                <input
-                  type="tel"
-                  id="whatsapp"
-                  name="whatsapp"
-                  value={formData.whatsapp}
-                  onChange={handleInputChange}
-                  className={errors.whatsapp ? 'error' : ''}
-                  placeholder="WhatsApp number"
-                />
-                <input
-                  type="tel"
-                  id="alternate"
-                  name="alternate"
-                  value={formData.alternate}
-                  onChange={handleInputChange}
-                  className={errors.alternate ? 'error' : ''}
-                  placeholder="Alternate number"
-                />
-                <input
-                  type="tel"
-                  id="international"
-                  name="international"
-                  value={formData.international}
-                  onChange={handleInputChange}
-                  className={errors.international ? 'error' : ''}
-                  placeholder="International number"
-                />
-              </div>
-            </div>
+          <div className="form-group">
+            <label htmlFor="societyName">Society Name/Apartment</label>
+            <input
+              type="text"
+              id="societyName"
+              name="societyName"
+              value={formData.societyName}
+              onChange={handleInputChange}
+              className={errors.societyName ? 'error' : ''}
+              placeholder="Enter society or apartment name"
+            />
+            {errors.societyName && <span className="error-message">{errors.societyName}</span>}
           </div>
 
-          {/* Right Column - Address Information */}
-          <div className="form-column right-column">
-            <div className="form-group">
-              <label htmlFor="address">Address</label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                value={formData.address}
-                onChange={handleInputChange}
-                className={errors.address ? 'error' : ''}
-                placeholder="Enter address"
-              />
-              {errors.address && <span className="error-message">{errors.address}</span>}
-            </div>
+          <div className="form-group">
+            <label htmlFor="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleInputChange}
+              className={errors.address ? 'error' : ''}
+              placeholder="Enter address"
+            />
+            {errors.address && <span className="error-message">{errors.address}</span>}
+          </div>
 
-            <div className="form-group">
-              <label htmlFor="location">Location</label>
-              <input
-                type="text"
-                id="location"
-                name="location"
-                value={formData.location}
-                onChange={handleInputChange}
-                className={errors.location ? 'error' : ''}
-                placeholder="Enter location"
-              />
-              {errors.location && <span className="error-message">{errors.location}</span>}
-            </div>
+          <div className="form-group">
+            <label htmlFor="flatNo">Flat No</label>
+            <input
+              type="text"
+              id="flatNo"
+              name="flatNo"
+              value={formData.flatNo}
+              onChange={handleInputChange}
+              className={errors.flatNo ? 'error' : ''}
+              placeholder="Enter flat number"
+            />
+            {errors.flatNo && <span className="error-message">{errors.flatNo}</span>}
+          </div>
 
-            <div className="form-group">
-              <label htmlFor="city">City</label>
-              <input
-                type="text"
-                id="city"
-                name="city"
-                value={formData.city}
-                onChange={handleInputChange}
-                className={errors.city ? 'error' : ''}
-                placeholder="Enter city"
-              />
-              {errors.city && <span className="error-message">{errors.city}</span>}
-            </div>
+          <div className="form-group">
+            <label htmlFor="location">Location</label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              value={formData.location}
+              onChange={handleInputChange}
+              className={errors.location ? 'error' : ''}
+              placeholder="Enter location"
+            />
+            {errors.location && <span className="error-message">{errors.location}</span>}
+          </div>
 
-            <div className="form-group">
-              <label htmlFor="state">State</label>
-              <input
-                type="text"
-                id="state"
-                name="state"
-                value={formData.state}
-                onChange={handleInputChange}
-                className={errors.state ? 'error' : ''}
-                placeholder="Enter state"
-              />
-              {errors.state && <span className="error-message">{errors.state}</span>}
-            </div>
+          <div className="form-group">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleInputChange}
+              className={errors.firstName ? 'error' : ''}
+              placeholder="Enter first name"
+            />
+            {errors.firstName && <span className="error-message">{errors.firstName}</span>}
+          </div>
 
-            <div className="form-group">
-              <label htmlFor="postalCode">Postal Code</label>
+          <div className="form-group">
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              value={formData.city}
+              onChange={handleInputChange}
+              className={errors.city ? 'error' : ''}
+              placeholder="Enter city"
+            />
+            {errors.city && <span className="error-message">{errors.city}</span>}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleInputChange}
+              className={errors.lastName ? 'error' : ''}
+              placeholder="Enter last name"
+            />
+            {errors.lastName && <span className="error-message">{errors.lastName}</span>}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="state">State</label>
+            <input
+              type="text"
+              id="state"
+              name="state"
+              value={formData.state}
+              onChange={handleInputChange}
+              className={errors.state ? 'error' : ''}
+              placeholder="Enter state"
+            />
+            {errors.state && <span className="error-message">{errors.state}</span>}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="emailId">Email ID</label>
+            <input
+              type="email"
+              id="emailId"
+              name="emailId"
+              value={formData.emailId}
+              onChange={handleInputChange}
+              className={errors.emailId ? 'error' : ''}
+              placeholder="Enter email address"
+            />
+            {errors.emailId && <span className="error-message">{errors.emailId}</span>}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="postalCode">Postal Code</label>
+            <input
+              type="text"
+              id="postalCode"
+              name="postalCode"
+              value={formData.postalCode}
+              onChange={handleInputChange}
+              className={errors.postalCode ? 'error' : ''}
+              placeholder="Enter postal code"
+            />
+            {errors.postalCode && <span className="error-message">{errors.postalCode}</span>}
+          </div>
+
+          <div className="form-group contact-group">
+            <div className="contact-buttons">
+              <button
+                type="button"
+                className="contact-btn whatsapp"
+                onClick={() => document.getElementById('whatsapp')?.focus()}
+              >
+                Whatsapp
+              </button>
+              <button
+                type="button"
+                className="contact-btn alternate"
+                onClick={() => document.getElementById('alternate')?.focus()}
+              >
+                Alternate
+              </button>
+              <button
+                type="button"
+                className="contact-btn international"
+                onClick={() => document.getElementById('international')?.focus()}
+              >
+                International
+              </button>
+            </div>
+            <div className="contact-inputs">
               <input
-                type="text"
-                id="postalCode"
-                name="postalCode"
-                value={formData.postalCode}
+                type="tel"
+                id="whatsapp"
+                name="whatsapp"
+                value={formData.whatsapp}
                 onChange={handleInputChange}
-                className={errors.postalCode ? 'error' : ''}
-                placeholder="Enter postal code"
+                className={errors.whatsapp ? 'error' : ''}
+                placeholder="WhatsApp number"
               />
-              {errors.postalCode && <span className="error-message">{errors.postalCode}</span>}
+              <input
+                type="tel"
+                id="alternate"
+                name="alternate"
+                value={formData.alternate}
+                onChange={handleInputChange}
+                className={errors.alternate ? 'error' : ''}
+                placeholder="Alternate number"
+              />
+              <input
+                type="tel"
+                id="international"
+                name="international"
+                value={formData.international}
+                onChange={handleInputChange}
+                className={errors.international ? 'error' : ''}
+                placeholder="International number"
+              />
             </div>
           </div>
         </div>
