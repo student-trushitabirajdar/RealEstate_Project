@@ -89,11 +89,29 @@ const BuildingDataPage: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent): void => {
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log('Form submitted:', formData);
+    if (!validateForm()) return;
+
+    try {
+      const res = await fetch('/api/buildings', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({} as any));
+        alert(err.message || 'Failed to save building data');
+        return;
+      }
+
       alert('Building data saved successfully!');
+    } catch (error) {
+      alert('Network error while saving building data');
     }
   };
 

@@ -57,7 +57,24 @@ src/
    (cd server && npm install)
    ```
 
-3. **Start the development server:**
+3. **Set environment (server/.env):**
+   ```bash
+   # /home/cryon/Projects/RealEstate_Project/server/.env
+   DATABASE_URL="file:./dev.db"
+   JWT_ACCESS_SECRET="replace-with-strong-secret"
+   JWT_REFRESH_SECRET="replace-with-strong-secret"
+   JWT_ACCESS_EXPIRES_IN="15m"
+   JWT_REFRESH_EXPIRES_IN="7d"
+   CORS_ORIGINS="http://localhost:3000"
+   ```
+
+4. **Migrate database and generate Prisma client:**
+   ```bash
+   cd server
+   npm run prisma migrate dev
+   ```
+
+5. **Start the development servers:**
    ```bash
    npm start
    # Backend API (Express + Prisma)
@@ -82,6 +99,15 @@ src/
 - `npm run build` - Builds TypeScript
 - `npm start` - Runs compiled server
 - `npm run prisma <args>` - Prisma CLI
+
+#### Auth Endpoints
+- `POST /api/auth/signup` { email, password, name? } → sets HTTP-only cookies, returns user and tokens
+- `POST /api/auth/login` { email, password } → sets HTTP-only cookies, returns user and tokens
+- `POST /api/auth/logout` → clears cookies and revokes refresh (tokenVersion++)
+- `POST /api/auth/refresh` → rotates access/refresh using refresh cookie
+- `GET /api/auth/me` → requires auth; returns current user
+
+Cookies: `accessToken` (15m), `refreshToken` (7d), both HTTP-only. In production, cookies are `secure` and `SameSite=strict`.
 
 Environment (server/.env):
 - `DATABASE_URL` (SQLite dev default: `file:./dev.db`)
