@@ -1,0 +1,409 @@
+.building-data-container {
+  background-color: white;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+.building-data-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.building-data-header h1 {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 15px 30px;
+  border: 2px solid #000;
+  border-radius: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.building-data-form {
+  background-color: white;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.form-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.contact-group {
+  grid-column: 1 / -1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.025em;
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+  color: #111827;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* Contact Number Section */
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.contact-btn {
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  border-radius: 6px;
+}
+
+.contact-btn:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.contact-btn:active {
+  background-color: #e5e7eb;
+}
+
+.contact-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Bottom Section */
+.form-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+  align-items: start;
+}
+
+/* File Operations */
+.file-operations {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.excel-btn {
+  background-color: #f59e0b;
+  border: 1px solid #d97706;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.excel-btn:hover {
+  background-color: #d97706;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.excel-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
+}
+
+/* Date and Time Section */
+.datetime-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.datetime-input {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #111827;
+}
+
+.datetime-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Message Section */
+.message-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message-box {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  color: #111827;
+}
+
+.message-box:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.message-box::placeholder {
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+/* Form Actions */
+.form-actions {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.submit-btn {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  min-width: 200px;
+}
+
+.submit-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .form-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .form-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .form-bottom {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .file-operations {
+    order: 1;
+  }
+  
+  .datetime-section {
+    order: 2;
+  }
+  
+  .message-section {
+    order: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .building-data-container {
+    padding: 20px 15px;
+  }
+  
+  .building-data-form {
+    padding: 30px 20px;
+  }
+  
+  .building-data-header h1 {
+    font-size: 1.25rem;
+    padding: 12px 20px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+  
+  .excel-btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .submit-btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .building-data-container {
+    padding: 15px 10px;
+  }
+  
+  .building-data-form {
+    padding: 20px 15px;
+  }
+  
+  .building-data-header h1 {
+    font-size: 1.1rem;
+    padding: 10px 15px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .contact-btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .excel-btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .submit-btn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    min-width: 160px;
+  }
+}
+
+/* Animation for form appearance */
+.building-data-form {
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus states for better accessibility */
+.form-group input:focus,
+.form-group textarea:focus,
+.contact-btn:focus,
+.excel-btn:focus,
+.submit-btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .building-data-container {
+    background-color: white;
+    padding: 0;
+  }
+  
+  .building-data-header h1 {
+    background-color: #1e3a8a;
+    color: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    background-color: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import './SignupPage.css';
 
 type OptionType = 'broker' | 'channel-partner' | null;
@@ -14,6 +15,8 @@ interface FormData {
 }
 
 const SignupPage: React.FC = () => {
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState<OptionType>(null);
   const [showForm, setShowForm] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
@@ -124,8 +127,12 @@ const SignupPage: React.FC = () => {
 
       const data = await res.json();
       console.log('Signup success:', data);
+      
+      // Update auth context with user data
+      login(data.user);
+      
       alert('Registration successful!');
-      handleBackToMain();
+      navigate('/');
     } catch (err) {
       console.error('Signup error:', err);
       alert('Network error. Please try again.');
